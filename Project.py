@@ -60,7 +60,7 @@ def load_data(city, month, day):
     # convert the Start Time column to datetime
     df['Start Time'] = pd.to_datetime(df['Start Time'])
 
-    # extract month and day of week from Start Time to create new columns
+    # Extract month and day of week from Start Time to create new columns
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
 
@@ -92,7 +92,7 @@ def time_stats(df):
     # display the most common Month
     print("The most common month is ", df['month'].mode()[0], "\n")
 
-    # display the most common day of the week
+    # display the most common day of the Week
     print("The most common day of week  is ", df['day_of_week'].mode()[0], "\n")
 
     # display the most common start hour
@@ -165,7 +165,7 @@ def user_stats(df, city):
         # Display counts of gender
         gen = df.groupby(['Gender'])['Gender'].count()
         print(gen)
-        # Display earliest, most recent, and most common year of birth
+        # Display earliest most recent, and most common year of birth
         mryob = sorted(df.groupby(['Birth Year'])['Birth Year'], reverse=True)[0][0]
         eyob = sorted(df.groupby(['Birth Year'])['Birth Year'])[0][0]
         mcyob = df['Birth Year'].mode()[0]
